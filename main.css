@@ -93,6 +93,7 @@ li {
 }
 
 .task__text {
+  position: relative;
   background-color: #dcdcdc;
   margin: 5px;
   padding: 10px;
@@ -100,12 +101,43 @@ li {
   text-align: center;
 }
 
+.hint {
+  display: none;
+  margin-left: -350px;
+  padding: 10px;
+  margin-top: 17px;
+  background: #f3f3f3;
+  font-weight: bold;
+  color: brown;
+}
+
+.task__text:hover .hint {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 320px;
+  z-index: 9999;
+  width: 190px;
+  height: auto;
+}
+
 .user__task {
+  position: relative;
   background-color: #dcdcdc;
   margin: 5px;
   padding: 10px;
   color: #00008b;
   text-align: center;
+}
+
+.user__task:hover .hint {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 335px;
+  z-index: 9999;
+  width: 105px;
+  height: auto;
 }
 
 .hide {

@@ -3,17 +3,23 @@ var users = [{"id":1,"username":"user1","surname":"Петров","firstName":"И
 var tasks = [{"id":"ff0388e8-7417-4ffa-86cc-e791706eceb9","subject":"Анализ","description":"","creationAuthor":1,"executor":1,"creationDate":"2021-09-13","planStartDate":"2021-09-13","planEndDate":"2021-09-15","endDate":"2021-09-13","status":1,"order":1},{"id":"ba746c71-bc05-4980-8309-1924d41de8e6","subject":"Планирование","description":"","creationAuthor":1,"executor":1,"creationDate":"2021-09-13","planStartDate":"2021-09-14","planEndDate":"2021-09-15","endDate":"2021-09-13","status":1,"order":1},{"id":"ad3920f6-d5f0-4adc-bd75-0e1d851554b3","subject":"Проектирование","description":"","creationAuthor":1,"executor":2,"creationDate":"2021-09-13","planStartDate":"2021-09-15","planEndDate":"2021-09-16","endDate":"2021-09-13","status":1,"order":1},{"id":"8eb7ffde-7d59-476a-aca3-4eaae060f046","subject":"Разработка","description":"","creationAuthor":1,"executor":3,"creationDate":"2021-09-13","planStartDate":"2021-09-15","planEndDate":"2021-09-20","endDate":"2021-09-13","status":1,"order":1},{"id":"52a8cc6d-7563-49f0-97e3-bbc4b18a5905","subject":"Тестирование","description":"","creationAuthor":1,"executor":null,"creationDate":"2021-09-13","planStartDate":"2021-09-17","planEndDate":"2021-09-20","endDate":"2021-09-13","status":1,"order":1}];
 
 const table = document.querySelector('.kanban__table');
-var dateAttr = [];
+
+/*var dateAttr = [];
 
 function getDate() {
     var dates = document.querySelectorAll('.table-date');
     for (let i = 0; i < dates.length; i++) {
         const date = dates[i];
-        dateAttr.push(`${date.dataset.day}`);
+        if (dateAttr.length > 1) {
+            dateAttr = [];
+            dateAttr.push(`${date.dataset.day}`);
+        } else{
+            dateAttr.push(`${date.dataset.day}`);
+        }
     }
 };
 
-getDate();
+getDate();*/
 
 function getUsers() {
     for (let i = 0; i < users.length; i++) {
@@ -25,6 +31,27 @@ function getUsers() {
         tr.id = `${user.id}`;
         table.append(tr);   
     }
+};
+
+function createHintForBacklog() {
+    var taskTexts = document.querySelectorAll('.task__text');
+    var hint = document.createElement('div');
+    hint.classList.add('hint');
+    hint.textContent = 'Подсказка';
+    taskTexts.forEach((taskText) => {
+        taskText.append(hint);
+    }) 
+    
+};
+
+function createHintForKanban() {
+    var userTasks = document.querySelectorAll('.user__task');
+    var hint = document.createElement('div');
+    hint.classList.add('hint');
+    hint.textContent = 'Подсказка';
+    userTasks.forEach((userTask) => {
+        userTask.append(hint);
+    })    
 };
 
 const backlog = document.querySelector('.backlog');
@@ -41,6 +68,7 @@ function getTasks() {
             taskItem.classList.add('task__item');
             taskItem.append(taskText);
             taskList.append(taskItem);
+            createHintForBacklog();
             taskText.setAttribute('draggable', true);
         } else {
             for (let i = 0; i < users.length; i++) {
@@ -54,9 +82,9 @@ function getTasks() {
                             userTask.classList.add('user__task');
                             userTask.textContent = task.subject;
                             element.append(userTask);
+                            createHintForKanban();
                         }
                     }
-                    
                 }
             }
         }

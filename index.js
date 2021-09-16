@@ -27,7 +27,7 @@ function getUsers() {
         var tr = document.createElement('tr');
         var td = document.createElement('td');
         console.log(`${dateAttr[0]}`);
-        tr.innerHTML = `<td> <div class='user-name'>${user.firstName}</div> </td> <td data-day='${dateAttr[0]}' class='js-cell'></td> <td data-day='${dateAttr[1]}' class='js-cell'></td> <td data-day='2021-09-11' class='js-cell'></td> <td data-day='2021-09-12' class='js-cell'></td> <td data-day='2021-09-13' class='js-cell'></td> <td data-day='2021-09-14' class='js-cell'></td> <td data-day='2021-09-15' class='js-cell'></td>`;
+        tr.innerHTML = `<td> <div class='user-name'>${user.firstName}</div> </td> <td data-day='2021-09-09' class='js-cell'></td> <td data-day='2021-09-10' class='js-cell'></td> <td data-day='2021-09-11' class='js-cell'></td> <td data-day='2021-09-12' class='js-cell'></td> <td data-day='2021-09-13' class='js-cell'></td> <td data-day='2021-09-14' class='js-cell'></td> <td data-day='2021-09-15' class='js-cell'></td>`;
         tr.id = `${user.id}`;
         table.append(tr);   
     }

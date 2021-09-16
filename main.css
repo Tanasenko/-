@@ -22,12 +22,20 @@ li {
   padding: 10px 0 10px;
 }
 
+.kanban__table {
+  width: 100%;
+}
+
 .left__btn,
 .right__btn {
   color: #fff;
   background-color: green;
   padding: 10px;
   border-radius: 5px;
+}
+
+.right__btn {
+  margin-right: 3px;
 }
 
 .user-name {
@@ -38,6 +46,11 @@ li {
 
 .table-date {
   padding: 5px 20px;
+  color: #fff;
+  background-color: yellowgreen;
+  text-align: center;
+  min-width: 90px;
+  /*max-width: 178px;*/
 }
 
 /* Backlog */
@@ -79,9 +92,26 @@ li {
   width: 100%;
 }
 
-.task__item {
+.task__text {
   background-color: #dcdcdc;
   margin: 5px;
   padding: 10px;
   color: #00008b;
+  text-align: center;
+}
+
+.user__task {
+  background-color: #dcdcdc;
+  margin: 5px;
+  padding: 10px;
+  color: #00008b;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.hovered {
+  background-color: #d1d8e2;
 }
